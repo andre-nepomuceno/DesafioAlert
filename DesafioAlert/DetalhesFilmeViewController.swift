@@ -38,7 +38,7 @@ class DetalhesFilmeViewController: UIViewController {
         tituloLabel.text = filme?.titulo
         anoLabel.text = filme?.obterAnoLancamento()
         generoLabel.text = filme?.obterGenero()
-        posterImageView.image = filme?.poster
+        posterImageView.image = UIImage(named: filme?.poster ?? "")
     }
     
     private func alertRemocaoDosFavoritos(filme: Filme) {

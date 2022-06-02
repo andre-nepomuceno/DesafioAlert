@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activity.color = .blue
-        activity.style = .large
+        activity .style = .large
         viewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
@@ -43,7 +43,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let filme = viewModel.retornaListaDeFilmes()[indexPath.row]
-        cell.imageView?.image = filme.poster
+        cell.imageView?.image = UIImage(named: filme.poster)
         cell.textLabel?.text = filme.titulo
         return cell
     }

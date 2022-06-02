@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import UIKit
 
 class Filme {
     let titulo: String
     let anoDeLancamento: Int
     let genero: String
-    let poster: UIImage
+    let poster: String
     
-    init(titulo: String, anoDeLancamento: Int, genero: String, poster: UIImage) {
+    init(titulo: String, anoDeLancamento: Int, genero: String, poster: String) {
         self.titulo = titulo
         self.anoDeLancamento = anoDeLancamento
         self.genero = genero
@@ -34,31 +33,31 @@ class Filme {
             titulo: "A Bruxa de Blair",
             anoDeLancamento: 1999,
             genero: "Terror",
-            poster: UIImage(named: "ABruxaDeBlair") ?? UIImage()
+            poster: "ABruxaDeBlair"
         ))
         filmes.append(Filme(
             titulo: "O Enigma de Outro Mundo",
             anoDeLancamento: 1982,
             genero: "Terror",
-            poster: UIImage(named: "ACoisa") ?? UIImage()
+            poster: "ACoisa"
         ))
         filmes.append(Filme(
             titulo: "Alien",
             anoDeLancamento: 1979,
             genero: "Terror",
-            poster: UIImage(named: "Alien") ?? UIImage()
+            poster: "Alien"
         ))
         filmes.append(Filme(
             titulo: "A Noite dos Mortos-Vivos",
             anoDeLancamento: 1968,
             genero: "Terror",
-            poster: UIImage(named: "ANoiteDosMortosVivos") ?? UIImage()
+            poster: "ANoiteDosMortosVivos"
         ))
         filmes.append(Filme(
             titulo: "A Profecia",
             anoDeLancamento: 1976,
             genero: "Terror",
-            poster: UIImage(named: "AProfecia") ?? UIImage()
+            poster: "AProfecia"
         ))
         return filmes
     }
