@@ -117,12 +117,9 @@
 				6DEF75902845999D00C91C44 /* AppDelegate.swift */,
 				6DEF75922845999D00C91C44 /* SceneDelegate.swift */,
 				6DEF7599284599A300C91C44 /* Assets.xcassets */,
-				6DEF75962845999D00C91C44 /* Main.storyboard */,
 				6DEF759B284599A300C91C44 /* LaunchScreen.storyboard */,
-				6DEF75942845999D00C91C44 /* ViewController.swift */,
 				6DEF759E284599A300C91C44 /* Info.plist */,
 				6DEF75C228459CDE00C91C44 /* Service.swift */,
-				6DEF75CB2846DE9100C91C44 /* DetalhesFilmeViewController.swift */,
 			);
 			path = DesafioAlert;
 			sourceTree = "<group>";
@@ -156,6 +153,9 @@
 		6DEF75C72846DD4D00C91C44 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6DEF75942845999D00C91C44 /* ViewController.swift */,
+				6DEF75CB2846DE9100C91C44 /* DetalhesFilmeViewController.swift */,
+				6DEF75962845999D00C91C44 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
