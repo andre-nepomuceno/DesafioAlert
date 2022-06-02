@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         viewModel.carregaTelaDetalhes(telaDetalhes: segue.destination, sender: sender)
+        activity.stopAnimating()
+        activity.isHidden = true
     }
 }
 extension ViewController: UITableViewDataSource {
@@ -48,14 +50,13 @@ extension ViewController: UITableViewDataSource {
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        activity.startAnimating()
+        activity.isHidden = false
         viewModel.buscarFilmePor(posicao: indexPath.row)
     }
 }
 
 extension ViewController: FilmeViewModelDelegate {
-    func exibeTelaDeDetalhes(tela: DetalhesFilmeViewController, filme: Filme) {
-        tela.filme = filme
-    }
     
     func exibeDetalhesDoFilme(filme: Filme) {
         performSegue(withIdentifier: "detalhesFilmeSegue", sender: filme)

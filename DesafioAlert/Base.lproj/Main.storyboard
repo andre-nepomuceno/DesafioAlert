@@ -85,6 +85,10 @@
                                     <action selector="favoritarButtonAction:" destination="tvT-Xq-Mms" eventType="touchUpInside" id="kjq-2s-sJo"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Vrg-Bc-Byl">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="beU-AT-CHU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -105,6 +109,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Vrg-Bc-Byl" id="l65-hk-aqV"/>
                         <outlet property="anoLabel" destination="g0Y-RS-MNd" id="zES-ex-B06"/>
                         <outlet property="generoLabel" destination="Eue-6Z-o4C" id="35s-is-ujw"/>
                         <outlet property="posterImageView" destination="ATc-Ek-Wk9" id="vRt-eG-zdp"/>

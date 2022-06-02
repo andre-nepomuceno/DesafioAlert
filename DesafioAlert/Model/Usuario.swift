@@ -19,12 +19,9 @@ class Usuario {
         filmesFavoritos.append(filme)
     }
     
-    func removerFilmeDosFavoritos(filme: Filme) -> String? {
-        guard let posicao = retornaPosicaoDoFilmeNaListaDeFavoritos(filme: filme) else {
-            return "O filme \(filme.titulo) não existe na lista de favoritos"
-        }
+    func removerFilmeDosFavoritos(filme: Filme) {
+        guard let posicao = retornaPosicaoDoFilmeNaListaDeFavoritos(filme: filme) else { return }
         filmesFavoritos.remove(at: posicao)
-        return nil
     }
     
     func retornaPosicaoDoFilmeNaListaDeFavoritos(filme: Filme) -> Int? {

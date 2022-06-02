@@ -13,8 +13,6 @@ protocol FilmeViewModelDelegate {
     func exibeDetalhesDoFilme(filme: Filme)
     
     func pararCarregamento()
-    
-    func exibeTelaDeDetalhes(tela: DetalhesFilmeViewController, filme: Filme)
 }
 
 class FilmeViewModel {
@@ -38,11 +36,8 @@ class FilmeViewModel {
     
     func carregaTelaDetalhes(telaDetalhes: UIViewController, sender: Any?) {
         guard let telaDetalhes = telaDetalhes as? DetalhesFilmeViewController else { return }
-        guard let filme = sender as? Filme else {
-            return
-        }
-        delegate?.exibeTelaDeDetalhes(tela: telaDetalhes, filme: filme)
-        //telaDetalhes.exibeDetalhesDoFilme(filme: filme)
+        guard let filme = sender as? Filme else { return }
+        telaDetalhes.viewModel = DetalhesFilmeViewModel(service: service, filme: filme)
     }
     
     func buscarFilmePor(posicao: Int) {

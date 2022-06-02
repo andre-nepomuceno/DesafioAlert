@@ -10,12 +10,11 @@ import Foundation
 class Service {
     
     private var listaDeFilmes: [Filme] = []
+    private var usuarioLogado: Usuario = Usuario(nome: "Andre")
     
     init() {
         listaDeFilmes = Filme.criarFilmesDeTerror()
     }
-    
-    private static var usuarioLogado: Usuario = Usuario(nome: "Andre")
     
     func obterTodosOsFilmes(completion: @escaping ([Filme]) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
@@ -25,33 +24,15 @@ class Service {
     
     func obterFilmePor(posicao: Int, completion: @escaping (Filme?) -> Void) {
         let filmeEscolhido = listaDeFilmes[posicao]
-
-        let tempoDeEspera = DispatchTime.now().advanced(by: .seconds(10));
-        DispatchQueue.main.asyncAfter(deadline: tempoDeEspera) {
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             completion(filmeEscolhido)
         }
     }
     
-    func obterUsuarioLogado() -> Usuario {
-        return Service.usuarioLogado
+    func obterUsuarioLogado(completion: @escaping (Usuario) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            completion(self.usuarioLogado)
+        }
     }
-
-    //    func obterFilmePor(titulo: String?, completion: @escaping (Filme?) -> Void) {
-    //        guard let titulo = titulo else { return }
-    //        let tempoDeEspera = DispatchTime.now().advanced(by: .seconds(10));
-    //
-    //        let filmeEscolhido = buscarFilmeNaListaPor(titulo: titulo)
-    //
-    //        DispatchQueue.main.asyncAfter(deadline: tempoDeEspera) {
-    //            completion(filmeEscolhido)
-    //        }
-    //    }
-
-    
-//    private func buscarFilmeNaListaPor(titulo: String) -> Filme? {
-//        return listaDeFilmes.first { filme in
-//            filme.titulo == titulo
-//        }
-//    }
-
 }
