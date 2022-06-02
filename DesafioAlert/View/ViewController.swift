@@ -16,22 +16,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activity.color = .blue
-        activity .style = .large
+        configuraActivity()
         viewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         
-        activity.startAnimating()
-        activity.isHidden = false
-        
+        iniciaAnimacaoActivity()
         viewModel.buscarFilmes()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         viewModel.carregaTelaDetalhes(telaDetalhes: segue.destination, sender: sender)
+        finalizaAnimacaoActivity()
+    }
+    
+    private func iniciaAnimacaoActivity() {
+        activity.startAnimating()
+        activity.isHidden = false
+    }
+    
+    private func finalizaAnimacaoActivity() {
         activity.stopAnimating()
         activity.isHidden = true
+    }
+    private func configuraActivity() {
+        activity.color = .red
+        activity.style = .large
     }
 }
 extension ViewController: UITableViewDataSource {
@@ -50,8 +60,7 @@ extension ViewController: UITableViewDataSource {
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        activity.startAnimating()
-        activity.isHidden = false
+        iniciaAnimacaoActivity()
         viewModel.buscarFilmePor(posicao: indexPath.row)
     }
 }
@@ -64,8 +73,7 @@ extension ViewController: FilmeViewModelDelegate {
     
     func pararCarregamento() {
         self.tableView.reloadData()
-        activity.stopAnimating()
-        activity.isHidden = true
+        finalizaAnimacaoActivity()
     }
     
     

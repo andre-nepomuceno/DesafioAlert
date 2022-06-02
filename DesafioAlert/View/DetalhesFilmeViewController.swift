@@ -21,16 +21,29 @@ class DetalhesFilmeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
-        activityIndicator.color = .blue
-        activityIndicator.style = .large
-        activityIndicator.isHidden = true
+        configuraActivity()
         exibeDetalhesDoFilme()
     }
     
     @IBAction func favoritarButtonAction(_ sender: Any) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        iniciaAnimacaoActivity()
         viewModel?.favoritarFilme()
+    }
+    
+    private func iniciaAnimacaoActivity() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
+    private func finalizaAnimacaoActivity() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
+    
+    private func configuraActivity() {
+        activityIndicator.color = .red
+        activityIndicator.style = .large
+        activityIndicator.isHidden = true
     }
     
     func exibeDetalhesDoFilme() {
@@ -76,14 +89,12 @@ class DetalhesFilmeViewController: UIViewController {
 }
 extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
     func confirmarFilmeFavorito(filme: Filme) {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
+        finalizaAnimacaoActivity()
         alertInclusaoNosFavoritos(filme: filme)
     }
     
     func confirmarRemocaoFilme(filme: Filme) {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
+        finalizaAnimacaoActivity()
         alertRemocaoDosFavoritos(filme: filme)
     }
     
